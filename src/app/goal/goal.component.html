@@ -1,0 +1,31 @@
+<div class="container">
+  <h1 style="text-align: center; padding: 10px;">MY GOALS</h1>
+  <hr>
+
+  <div class="row">
+    <div class="col-md-6">
+      <hr>
+     <ul>
+       <div *ngFor = 'let goal of goals;let i = index' style="list-style: none;">
+        <li appStrikethrough> {{goal.id}}.{{ goal.name }} that is due on {{goal.completeDate|date|uppercase}}</li>
+        <button (click)='toggleDetails(i)' style="margin: 10px; background-color: black; color: white;
+        padding: 5px; border-radius: 5px; box-shadow: 2px 2px 2px teal;">Show goal details</button>
+        <app-goal-details *ngIf='goal.showDescription' [goal]='goal' (isComplete)= 'deleteGoal($event, i)'></app-goal-details>
+       </div>
+     </ul>
+    </div>
+
+    <div class="col-md-6">
+
+     <app-goal-form (addGoal)="addNewGoal($event)" ></app-goal-form>
+
+    </div>
+
+  </div>
+     
+   <hr>
+   <div style="background-color: teal; padding: 10px;">
+     <p *ngIf = 'goals.length > 5'>You will be unable to complete your goals. Especially if you continue adding them</p>
+   </div>
+   
+ </div>

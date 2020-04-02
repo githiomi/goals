@@ -1,0 +1,16 @@
+<div style="background-color: white; color: black; margin: 5px; padding: 5px; 
+box-shadow: 2px 2px 2px teal;">
+     <p>
+     {{ goal.description }} </p>
+     <br>
+
+     <p style="margin: 5px; color: teal;">You have {{ goal.completeDate|dateCount }} days to go </p>
+     <br>
+
+     <button (click) = 'goalComplete(true)' style="margin: 5px; background-color: black; color: white;
+     padding: 5px; border-radius: 5px; box-shadow: 2px 2px 2px teal;">Completed Goal</button>
+
+     <button (click) = 'goalDelete(true)' style="margin: 5px; background-color: black; color: white;
+     padding: 5px; border-radius: 5px; box-shadow: 2px 2px 2px teal;">Delete Goal</button>
+
+</div>

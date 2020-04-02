@@ -1,0 +1,11 @@
+
+<hr>
+   <div style="background-color: black; color: white; padding: 10px;">
+      My favourite numbers are as listed below:
+      <ol>
+         The followings pizzas are available:
+         <li *ngFor = 'let number of pizzas' style="list-style: none; margin: 5px;">
+             {{ number.pizzaName }} available in the following sizes: {{ number.pizzaSize }} with the following toppings {{ number.toppingsAv }}
+         </li>
+      </ol>
+   </div>

@@ -1,0 +1,41 @@
+<div class="container-fluid">
+     <h2 class="text-center">Create a new Goal</h2>
+     <hr>
+     <form (ngSubmit)='submitGoal()' #goalForm='ngForm'>
+         <div class="form-group">
+   
+             <label for="name">Name: </label>
+             <input type="text" required class="form-control" id="name" [(ngModel)]='dhosioInput.name' name='name' #name='ngModel'>
+             <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                <p>Name is required</p>
+              </div>
+
+         </div>
+         <div class="form-group">
+   
+             <label for="description">Description:</label>
+             <textarea class="form-control" id="description" rows="3" required [(ngModel)]='dhosioInput.description' name='description' #description='ngModel'></textarea>
+             <div [hidden] ='description.valid || description.pristine' class="bg-warning">
+                 <p style="font-size: bolder; padding: 10px;">Description cannot be blank</p>
+             </div>
+   
+         </div>
+         <div class="form-group">
+             <label for="complete">Completion Date:</label>
+             <input type='date' id="complete" required [(ngModel)]='dhosioInput.completeDate' name='completeDate' #complete='ngModel'>
+             <div [hidden] = 'complete.valid || complete.pristine' class="bg-info">
+                 <p style="font-weight: bolder; padding: 10px;">Enter valid date</p>
+             </div>
+   
+         </div>
+         <button type="submit" class="btn btn-warning">Add Goal</button>
+     </form>
+     <div style="padding: 10px; margin: 5px; border-radius: 10px;">
+        The new goal is as follows:
+        <hr>
+        {{ dhosioInput.name|uppercase }}<br>
+        {{ dhosioInput.description|uppercase }} <br>
+        {{ dhosioInput.completeDate|date|uppercase }} <br>
+        <hr>
+     </div>
+</div>
