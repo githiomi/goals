@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Goal } from './goal'
 import { GoalsService } from '../services/goals-service/goals.service';
 import { AlertService } from '../services/alert-service/alert.service';
+import { HttpClientModule } from '@angular/common/http'
+import { Quote } from '../quote-class/quote';
 
 @Component({
   selector: 'app-goal',
@@ -11,7 +13,8 @@ import { AlertService } from '../services/alert-service/alert.service';
 export class GoalComponent implements OnInit {
 
   goals: Goal[];
-  alertOnGoalDelete : AlertService
+  alertOnGoalDelete : AlertService;
+  randomQuote : Quote;
 
   toggleDetails(index){
     this.goals[index].showDescription = !this.goals[index].showDescription;
@@ -42,7 +45,7 @@ export class GoalComponent implements OnInit {
     this.goals.push(goal)
   }
 
-  constructor(getGoalFromService : GoalsService, alertOnGoalDelete : AlertService) {
+  constructor(getGoalFromService : GoalsService, alertOnGoalDelete : AlertService, liveLink : HttpClientModule) {
     this.goals = getGoalFromService.getGoals();
     this.alertOnGoalDelete = alertOnGoalDelete;
    }
