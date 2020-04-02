@@ -14,6 +14,9 @@ import { StrikethroughDirective } from './strikethrough.directive';
 import { DateCountPipe } from './date-count.pipe';
 import { PizzaDetailsComponent } from './pizza-details/pizza-details.component';
 import { GoalFormComponent } from './goal-form/goal-form.component';
+import { AboutComponent } from './about/about/about.component';
+import { NavBarComponent } from './about/nav-bar/nav-bar.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { GoalFormComponent } from './goal-form/goal-form.component';
     StrikethroughDirective,
     DateCountPipe,
     PizzaDetailsComponent,
-    GoalFormComponent
+    GoalFormComponent,
+    AboutComponent,
+    NavBarComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
