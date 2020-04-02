@@ -8,6 +8,7 @@ import { Quote } from '../quote-class/quote'
 })
 export class ExtractQuoteService {
 
+  public linkToQuotes = "http://quotes.stormconsultancy.co.uk/random.json";
   quote : Quote;
 
   constructor(public quoteLink : HttpClient) {
@@ -22,7 +23,7 @@ export class ExtractQuoteService {
     }
 
     let ahidi = new Promise ((resolve, reject) => 
-      this.quoteLink.get<QuoteShow>(environment.linkToQuotes).toPromise().then(
+      this.quoteLink.get<QuoteShow>(this.linkToQuotes).toPromise().then(
         datum => {
           this.quote.author = datum.quoteAuthor;
           this.quote.quote = datum.actQuote;
