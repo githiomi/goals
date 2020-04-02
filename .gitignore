@@ -44,3 +44,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+<!-- These are files to be hidden -->
+environment.ts

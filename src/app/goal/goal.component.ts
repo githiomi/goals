@@ -4,6 +4,7 @@ import { GoalsService } from '../services/goals-service/goals.service';
 import { AlertService } from '../services/alert-service/alert.service';
 import { HttpClient } from '@angular/common/http'
 import { Quote } from '../quote-class/quote';
+import { ExtractQuoteService } from '../quote-request/extract-quote.service';
 
 
 @Component({
@@ -46,24 +47,13 @@ export class GoalComponent implements OnInit {
     this.goals.push(goal)
   }
 
-  constructor(getGoalFromService : GoalsService, alertOnGoalDelete : AlertService, private liveLink : HttpClient) {
+  constructor(getGoalFromService : GoalsService, alertOnGoalDelete : AlertService, private quoteFromUrl : ExtractQuoteService) {
     this.goals = getGoalFromService.getGoals();
     this.alertOnGoalDelete = alertOnGoalDelete;
    }
 
   ngOnInit() {
-
-    interface ApiShow{
-      quoteAuthor : string;
-      actQuote : string;
-    }
-
-    this.liveLink.get<ApiShow>("http://quotes.stormconsultancy.co.uk/random.json").subscribe(
-      datum => {
-        this.randomQuote = new Quote (datum.quoteAuthor, datum.actQuote);
-      }, err => {
-        this.randomQuote = new Quote("Daniel Githiomi", "This money will make you go crazy");
-      })
-    }
-
+    this.quoteFromUrl.extractQuote();
+    this.randomQuote = this.quoteFromUrl.quote;
+  }
 }
