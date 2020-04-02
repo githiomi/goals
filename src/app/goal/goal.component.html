@@ -27,5 +27,14 @@
    <div style="background-color: teal; padding: 10px;">
      <p *ngIf = 'goals.length > 5'>You will be unable to complete your goals. Especially if you continue adding them</p>
    </div>
+
+   <hr>
+
+    <blockquote class="blockquote text-center">
+      <p class="mb-0">Quote: {{ randomQuote.quote }}</p>
+      <footer class="blockquote-footer"> <cite>{{ randomQuote.author }}</cite></footer>
+    </blockquote>
+
+   <hr>
    
  </div>
