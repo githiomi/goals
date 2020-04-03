@@ -6,11 +6,11 @@ import { PizzaDetailsComponent } from './pizza-details/pizza-details.component';
 
 
 const routes: Routes = [
-  { path: 'goal', component: GoalComponent},
+  { path: 'goals', component: GoalComponent},
   { path: 'about', component: AboutComponent},
   { path:'**', component:GoalComponent},
 
-  { path: '', redirectTo:"/goal", pathMatch:"full"},
+  { path: '', redirectTo:"/goals", pathMatch:"full"},
 ];
 
 @NgModule({
